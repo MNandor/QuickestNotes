@@ -80,7 +80,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun writeLineToFile(file: File, myText: String) {
+    private fun writeLineToFile(file: File, text: String) {
+        var myText = text
+        // regex substitutions
+        myText = """^gcash """.toRegex().replace(myText, "# groceriescash ")
+        myText = """^gca """.toRegex().replace(myText, "# groceriescash ")
+        myText = """^gc """.toRegex().replace(myText, "# groceries ")
+        myText = """^gcer """.toRegex().replace(myText, "# groceries ")
+        myText = """^gco """.toRegex().replace(myText, "# groceriesconvenience ")
+        myText = """^gconv """.toRegex().replace(myText, "# groceriesconvenience ")
+        myText = """^isp """.toRegex().replace(myText, "# ispent ")
+        myText = """^ispent """.toRegex().replace(myText, "# ispent ")
+
         val c: Calendar = Calendar.getInstance()
         val df = SimpleDateFormat("MMMM-dd HH:mm")
         val formatDate: String = df.format(c.getTime())

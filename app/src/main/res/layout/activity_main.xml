@@ -15,7 +15,7 @@
         android:ems="10"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:hint="view clear copy"
+        android:hint="view clear copy [gc]er [gca]sh [gco]nv [isp]ent"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#7A7A7A"
