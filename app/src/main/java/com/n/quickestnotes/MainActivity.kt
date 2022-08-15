@@ -33,6 +33,18 @@ class MainActivity : AppCompatActivity() {
 
     var editMode = false
 
+    override fun onStop() {
+        super.onStop()
+        // When the app goes in the background, if the user ran view, clear it
+        // Split screens and the copy command can still be used to copy data
+        if (editMode){
+            editMode = false
+            var editText = findViewById<EditText>(R.id.editTextTextPersonName)
+            editText.isSingleLine = true
+            editText.text.clear()
+        }
+    }
+
     @ExperimentalStdlibApi
     override fun onResume() {
         super.onResume()
