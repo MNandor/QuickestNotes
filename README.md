@@ -1,6 +1,7 @@
 # QuickestNotes
 
 QuickestNotes is a **simple** note-taking application.
+`android`
 
 Open the app, type your notes, press Enter.
 
