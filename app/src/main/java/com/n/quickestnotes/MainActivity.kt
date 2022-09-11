@@ -8,13 +8,16 @@ import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.os.Environment
+import android.text.InputType
 import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import org.w3c.dom.Text
 import java.io.File
 import java.lang.Exception
 
@@ -29,6 +32,24 @@ class MainActivity : AppCompatActivity() {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_main)
+
+        setupClickies()
+    }
+
+    private fun setupClickies(){
+        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+        setCustomButtonText(findViewById<Button>(R.id.button4), "gco ")
+        setCustomButtonText(findViewById<Button>(R.id.button5), "gc ")
+        setCustomButtonText(findViewById<Button>(R.id.button6), "gca ")
+    }
+
+    private fun setCustomButtonText(button: Button, text: String){
+        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+        button.setOnClickListener{
+            editText.setText(text)
+            editText.inputType = (InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL)
+            editText.setSelection(editText.text.length);
+        }
     }
 
     var editMode = false
@@ -51,6 +72,8 @@ class MainActivity : AppCompatActivity() {
 
         var editText = findViewById<EditText>(R.id.editTextTextPersonName)
         editText.requestFocus()
+
+        editText.inputType = InputType.TYPE_TEXT_VARIATION_PERSON_NAME
 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
 
